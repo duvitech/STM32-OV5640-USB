@@ -1,7 +1,0 @@
-../Core/Src/sccb.c:6:6:delay_6us	16	static
-../Core/Src/sccb.c:14:6:SCCB_Delay	8	static
-../Core/Src/sccb.c:19:6:SCCB_Start	8	static
-../Core/Src/sccb.c:29:6:SCCB_Stop	8	static
-../Core/Src/sccb.c:39:6:SCCB_No_Ack	8	static
-../Core/Src/sccb.c:51:9:SCCB_WR_Byte	24	static
-../Core/Src/sccb.c:73:9:SCCB_RD_Byte	16	static

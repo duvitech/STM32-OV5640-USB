@@ -1,7 +1,0 @@
-../Core/Src/logging.c:31:5:_write	4
-../Core/Src/logging.c:62:6:init_dma_logging	1
-../Core/Src/logging.c:71:6:is_using_dma	1
-../Core/Src/logging.c:75:16:usart_start_tx_dma_transfer	5
-../Core/Src/logging.c:91:6:logging_UART_TxHalfCpltCallback	1
-../Core/Src/logging.c:97:6:logging_UART_ErrorCallback	1
-../Core/Src/logging.c:103:6:logging_UART_TxCpltCallback	1

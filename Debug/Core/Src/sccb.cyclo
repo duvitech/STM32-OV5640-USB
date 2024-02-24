@@ -1,7 +1,0 @@
-../Core/Src/sccb.c:6:6:delay_6us	2
-../Core/Src/sccb.c:14:6:SCCB_Delay	1
-../Core/Src/sccb.c:19:6:SCCB_Start	1
-../Core/Src/sccb.c:29:6:SCCB_Stop	1
-../Core/Src/sccb.c:39:6:SCCB_No_Ack	1
-../Core/Src/sccb.c:51:9:SCCB_WR_Byte	4
-../Core/Src/sccb.c:73:9:SCCB_RD_Byte	3
