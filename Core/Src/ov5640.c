@@ -81,6 +81,24 @@ uint8_t OV5640_Init(void)
 	return 0x00; 	//ok
 }
 
+uint16_t OV5640_Read_ID(void)
+{
+	uint16_t reg;
+
+
+	OV5640_PWDN_Pin_RESET;		//POWER ON
+	HAL_Delay(30);
+
+	reg=OV5640_RD_Reg(OV5640_CHIPIDH);
+	reg<<=8;
+	reg|=OV5640_RD_Reg(OV5640_CHIPIDL);
+	if(reg!=OV5640_ID)
+	{
+		printf("ID: %d \r\n",reg);
+	}
+
+	return reg;
+}
 void OV5640_JPEG_Mode(void)
 {
 	uint16_t i=0;
@@ -496,7 +514,7 @@ void jpeg_dcmi_frame_callback(DMA_HandleTypeDef *_hdma)
         if(jpglen)
         {
                 p+=jpgstart;	// move to FF D8
-                HAL_UART_Transmit(&huart1, p, jpglen, 5000);
+                HAL_UART_Transmit(&huart3, p, jpglen, 5000);
 
                 // printf("jpg_size :  %d \r\n" , jpglen);
                 //printf("jpgstart :  %d \r\n" , jpgstart);

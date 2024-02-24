@@ -43,6 +43,7 @@
 uint8_t OV5640_WR_Reg(uint16_t reg,uint8_t data);
 uint8_t OV5640_RD_Reg(uint16_t reg);
 uint8_t OV5640_Init(void);
+uint16_t OV5640_Read_ID(void);
 void OV5640_JPEG_Mode(void);
 void OV5640_RGB565_Mode(void);
 void OV5640_Exposure(uint8_t exposure);

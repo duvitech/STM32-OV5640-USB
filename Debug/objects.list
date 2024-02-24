@@ -1,3 +1,5 @@
+"./Core/Src/logging.o"
+"./Core/Src/lwrb.o"
 "./Core/Src/main.o"
 "./Core/Src/ov5640.o"
 "./Core/Src/sccb.o"

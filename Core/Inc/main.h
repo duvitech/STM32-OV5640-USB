@@ -53,6 +53,7 @@ extern "C" {
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
+extern UART_HandleTypeDef huart3;
 
 /* USER CODE END EFP */
 
