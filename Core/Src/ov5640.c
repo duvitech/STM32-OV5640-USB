@@ -3,6 +3,8 @@
 #include "ov5640af.h"
 #include "sccb.h"
 
+#include "usbd_cdc_if.h"
+
 
 extern DMA_HandleTypeDef hdma_dcmi;
 extern DCMI_HandleTypeDef hdcmi;
@@ -84,10 +86,6 @@ uint8_t OV5640_Init(void)
 uint16_t OV5640_Read_ID(void)
 {
 	uint16_t reg;
-
-
-	OV5640_PWDN_Pin_RESET;		//POWER ON
-	HAL_Delay(30);
 
 	reg=OV5640_RD_Reg(OV5640_CHIPIDH);
 	reg<<=8;
@@ -425,11 +423,6 @@ void jpeg_test(uint8_t jpg_size)
         /* Start the Camera capture */
         HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)jpeg_data_buf, jpeg_buf_size/4 );
         jpeg_mode = 1;
-
-        while(1)
-        {
-
-        }
 }
 
 void rgb565_test(void)
@@ -514,10 +507,11 @@ void jpeg_dcmi_frame_callback(DMA_HandleTypeDef *_hdma)
         if(jpglen)
         {
                 p+=jpgstart;	// move to FF D8
-                HAL_UART_Transmit(&huart3, p, jpglen, 5000);
-
-                // printf("jpg_size :  %d \r\n" , jpglen);
+                //HAL_UART_Transmit(&huart3, p, jpglen, 5000);
+                CDC_Transmit_FS(p, jpglen);
+                //printf("jpg_size :  %d \r\n" , jpglen);
                 //printf("jpgstart :  %d \r\n" , jpgstart);
+
         }
 
         HAL_DCMI_Start_DMA(&hdcmi, DCMI_MODE_CONTINUOUS, (uint32_t)jpeg_data_buf, jpeg_buf_size/4);
